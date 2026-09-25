@@ -29,4 +29,4 @@ export interface IShowable {
   }
 
 
-export type EntityType = 'songs' | 'artists' | 'tags';
+export type EntityType = 'songs' | 'artists' | 'tags' | 'lists';

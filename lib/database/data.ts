@@ -3,6 +3,8 @@ import { Artist, Song, SongForm, Tag } from './definitions';
 
 const ITEMS_PER_PAGE = 6;
 
+
+
 export async function fetchFilteredSongs(
   query: string,
   currentPage: number,

@@ -15,6 +15,7 @@ import { Artist, Song, SongForm, Tag } from '@/lib/database/definitions';
 import Uploader from '@/components/Uploader';
 import { useEffect, useState } from 'react';
 import MultiSelect from './multiselect';
+import { fetchFilteredSongs } from '@/lib/database/data';
 
 
 export default function Form({ song, artists, tags }: { song?: SongForm, artists: Artist[], tags:Tag[]}) {
@@ -230,5 +231,78 @@ export function TagForm({ tag }: { tag?: Tag }){
         <Button type="submit">{tag ? "Guardar" : "Adicionar"}</Button>
       </div>
     </form>
+  );
+}
+
+export async function ListForm() {
+  // State to keep track of selected song IDs
+  const [selectedSongs, setSelectedSongs] = useState<string[]>([]);
+  
+  // State to store the submitted list of songs
+  const [songList, setSongList] = useState<{ id: string; title: string }[]>([]);
+
+  const availableSongs = await fetchFilteredSongs('', 1);
+  // Handle song selection from the form
+  const handleSongChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOptions = Array.from(event.target.selectedOptions).map(
+      (option) => option.value
+    );
+    setSelectedSongs(selectedOptions); // Update the selected songs
+  };
+
+  // Handle form submission
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    // Get the selected songs' details based on their IDs
+    const selectedSongDetails = availableSongs.filter(song =>
+      selectedSongs.includes(song.id)
+    );
+
+    // Set the songList state to store the selected songs
+    setSongList(selectedSongDetails);
+  };
+
+  return (
+    <div className="w-full p-4">
+      <form onSubmit={handleSubmit} className="mb-4">
+        <label htmlFor="song-select" className="block mb-2">
+          Select 2 or more songs:
+        </label>
+        <select
+          id="song-select"
+          multiple
+          value={selectedSongs}
+          onChange={handleSongChange}
+          className="w-full p-2 border rounded"
+        >
+          {availableSongs.map((song) => (
+            <option key={song.id} value={song.id}>
+              {song.title}
+            </option>
+          ))}
+        </select>
+
+        <button
+          type="submit"
+          className="mt-4 p-2 bg-blue-500 text-white rounded"
+          disabled={selectedSongs.length < 2} // Disable if less than 2 songs are selected
+        >
+          Create Song List
+        </button>
+      </form>
+
+      {/* Display the selected list of songs */}
+      {songList.length > 0 && (
+        <div>
+          <h3 className="text-lg font-bold">Your Selected Songs:</h3>
+          <ul className="list-disc ml-4 mt-2">
+            {songList.map((song) => (
+              <li key={song.id}>{song.title}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
