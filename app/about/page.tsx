@@ -72,17 +72,19 @@ export default async function About() {
       </div>
       
 
-      <div className="flex-col-center w-full gap-4 p-4">
+      <div className="flex-col-center w-full gap-4 p-4 overflow-hidden">
         <h2 className={`text-heading dark:text-heading-dark text-large ${oswald.className}`}>Equipa</h2>	
         <InfiniteMovingCards
           items={shuffledItems.slice(0, Math.ceil(carousselItems.length / 2))}
           direction="right"
-          speed="slow"
+          speed="fast"
+          pauseOnHover={false}
         />
         <InfiniteMovingCards
           items={shuffledItems.slice(Math.ceil(carousselItems.length / 2))}
-          direction="right"
-          speed="slow2"
+          direction="left"
+          speed="fast"
+          pauseOnHover={false}
         />
       </div>
     </section>
