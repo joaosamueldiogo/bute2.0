@@ -6,37 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@heroicons/react": "^2.1.5",
-    "@vercel/blob": "^0.23.4",
-    "@vercel/postgres": "^0.9.0",
-    "bcrypt": "^5.1.1",
-    "clsx": "^2.1.1",
-    "directory-tree": "^3.5.2",
-    "framer-motion": "^11.3.28",
-    "fs": "^0.0.1-security",
-    "next": "^16.3.6",
-    "promises": "^0.2.5",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "react-hot-toast": "^2.4.1",
-    "react-icons": "^5.3.0",
-    "tailwind-merge": "^2.5.2",
-    "tailwind-scrollbar-hide": "^1.1.7",
-    "use-debounce": "^10.0.3",
-    "zod": "^3.23.8"
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^18.3.6",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }

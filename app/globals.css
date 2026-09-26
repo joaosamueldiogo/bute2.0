@@ -1,66 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-.icon {
-    @apply text-text dark:text-text-dark peer-focus:text-heading dark:peer-focus:text-heading-dark hover:text-heading dark:hover:text-heading-dark
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-.btnGlow {
-    @apply shadow-[0_4px_14px_0_rgb(100,161,71,39%)] hover:shadow-[0_6px_20px_rgba(100,161,71,23%)] bg-primary-200 text-surface-500 font-light
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-.btnIcon {
-    @apply w-5 ml-3 text-surface-500
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
-.flex-col-center {
-    @apply flex flex-col justify-center items-center
-}
-
-.flex-row-center {
-    @apply flex flex-row justify-center items-center
-}
-
-.flex-row-between {
-    @apply flex flex-row justify-between items-center
-}
-
-
-/* TEXT TYPES (xlight, light, normal, bold, xbold) */
-.text-light {
-    @apply font-[100] text-surface-dark-300 dark:text-surface-300
-}
-
-.text-normal {
-    @apply font-normal text-surface-dark-200 dark:text-surface-400
-}
-
-.text-bold {
-    @apply font-bold text-surface-dark-100 dark:text-surface-500
-}
-
-.text-xbold {
-    @apply font-extrabold text-surface-dark-100 dark:text-surface-500
-}
-
-/* TEXT SIZES (nano, small, medium, large, extra, huge) */
-.text-huge {
-    @apply text-7xl md:text-8xl
-}
-
-.text-extra {
-    @apply text-6xl md:text-7xl
-}
-
-.text-large {
-    @apply text-2xl md:text-3xl lg:text-4xl
-}
-
-.text-medium {
-    @apply text-sm md:text-lg
-}
-
-.text-small {
-    @apply text-xs md:text-sm
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
