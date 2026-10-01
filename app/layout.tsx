@@ -17,7 +17,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt"
       className={cn("h-full", "antialiased", roboto.variable, merriweatherHeading.variable, oswald.variable)}
     > 
-      <body className="min-h-full bg-card">
+      <body className={`min-h-full bg-card ${roboto.className}`}>
         <NavBar />
         <main>
           {children}
