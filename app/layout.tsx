@@ -16,12 +16,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt"
       className={cn("h-full", "antialiased", roboto.variable, merriweatherHeading.variable, oswald.variable)}
-    > 
-      <body className={`min-h-full bg-card ${roboto.className}`}>
+    >
+      <body className={`min-h-full bg-background ${roboto.className}`}>
         <NavBar />
         <main>
           {children}
-        </main>   
+        </main>
       </body>
     </html>
   );

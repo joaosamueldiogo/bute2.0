@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "convert-song": "node scripts/convert-song.mjs",
+    "test:convert-song": "node --test scripts/convert-song.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
