@@ -8,7 +8,7 @@ import {
     BreadcrumbSeparator,
 } from "./ui/breadcrumb";
 
-export default function SongCatalog({ song }: { song: Song }) {
+export default function SongCard({ song }: { song: Song }) {
     return (
         <Link
             key={song.slug}
@@ -16,17 +16,6 @@ export default function SongCatalog({ song }: { song: Song }) {
             className="group flex min-h-12 flex-col justify-between rounded-2xl border border-border bg-card p-4 shadow-sm transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
         >
             <div className="flex flex-col gap-3">
-                <Breadcrumb>
-                    <BreadcrumbList className="text-[10px] uppercase tracking-[0.18em]">
-                        <BreadcrumbItem>
-                            <BreadcrumbPage className="text-muted-foreground">Bute</BreadcrumbPage>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                            <BreadcrumbPage className="text-primary">{song.title}</BreadcrumbPage>
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                </Breadcrumb>
                 <div className="flex items-center justify-between gap-2">
                     <h2 className="font-heading text-xl leading-tight">{song.title}</h2>
                     {song.category && (
